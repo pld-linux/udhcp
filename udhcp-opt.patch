@@ -1,0 +1,11 @@
+--- udhcp-0.9.8/Makefile~	2002-10-31 20:46:43.000000000 +0200
++++ udhcp-0.9.8/Makefile	2005-07-30 15:51:51.000000000 +0300
+@@ -13,6 +13,8 @@
+ # Uncomment this for extra output and to compile with debugging symbols
+ #DEBUG=1
+ 
++CFLAGS += $(OPTFLAGS)
++
+ # Uncomment this to output messages to syslog, otherwise, messages go to stdout
+ CFLAGS += -DSYSLOG
+ 

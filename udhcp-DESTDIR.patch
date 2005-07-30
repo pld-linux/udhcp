@@ -1,0 +1,27 @@
+--- udhcp-0.9.8/Makefile~	2005-07-30 15:55:01.000000000 +0300
++++ udhcp-0.9.8/Makefile	2005-07-30 15:55:03.000000000 +0300
+@@ -1,10 +1,10 @@
+ # udhcp makefile
+ 
+ prefix=/usr
+-SBINDIR=/sbin
+-USRSBINDIR=${prefix}/sbin
+-USRBINDIR=${prefix}/bin
+-USRSHAREDIR=${prefix}/share
++SBINDIR=$(DESTDIR)/sbin
++USRSBINDIR=$(DESTDIR)${prefix}/sbin
++USRBINDIR=$(DESTDIR)${prefix}/bin
++USRSHAREDIR=$(DESTDIR)${prefix}/share
+ 
+ # Uncomment this to get a shared binary. Call as udhcpd for the server,
+ # and udhcpc for the client
+--- udhcp-0.9.8/Makefile~	2005-07-30 15:58:38.000000000 +0300
++++ udhcp-0.9.8/Makefile	2005-07-30 15:58:40.000000000 +0300
+@@ -83,6 +83,7 @@
+ 
+ 
+ install: all
++	$(INSTALL) -d $(USRSBINDIR) $(USRBINDIR) $(SBINDIR)
+ 
+ 	$(INSTALL) $(DAEMONS) $(USRSBINDIR)
+ 	$(INSTALL) $(COMMANDS) $(USRBINDIR)
