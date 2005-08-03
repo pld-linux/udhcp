@@ -2,10 +2,11 @@
 # - separate client and server package?
 #
 # Conditional build:
-%bcond_with	uClibc	# link with uClibc
-%bcond_with	combined_binary # combined_binary
+%bcond_with	uClibc		# link with uClibc
+%bcond_with	combined_binary	# combined_binary
 #
 Summary:	udhcp Server/Client Package
+Summary(pl):	Serwer i klient udhcp
 Name:		udhcp
 Version:	0.9.8
 Release:	0.1
@@ -22,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The udhcp server/client is targeted deliberately at embedded
-environments... Other linux DHCP servers out there (such as the ISC
+environments... Other Linux DHCP servers out there (such as the ISC
 DHCP server) are targeted at larger systems such as PCs (with more
 RAM/disk space/etc.). As a result, the udhcp package does not have as
 large a feature set as some of these DHCP packages.
@@ -42,13 +43,35 @@ The client accepts all options on the command line, and calls external
 scripts to handle the configuration of interfaces to allow for the
 ultimate flexibility.
 
+%description -l pl
+Serwer/klient udhcp jest przeznaczony dla ¶rodowisk wbudowanych. Inne
+linuksowe serwery DHCP (takie jak serwer DHCP ISC) s± przeznaczone dla
+wiêkszych systemów, takich jak PC (z wiêksz± ilo¶ci± RAM-u,
+przestrzeni dyskowe itp.). W efekcie pakiet udhcp nie ma tak wielu
+mo¿liwo¶ci jak niektóre inne pakiety DHCP.
+
+Skompilowane z uClibc binarki serwera i klienta maj± oko³o 18kB, a
+skompilowane jako jedna po³±czona binarka - 28kB. udhcp ¶wietnie
+pasuje dla systemów wbudowanych wymagaj±cych obs³ugi DHCP.
+
+Plik dzier¿aw serwera udhcp jest w formacie binarnym, przez co
+wymagana przestrzeñ na adresy IP i MAC jest minimalna. Ma tak¿e opcjê
+przechowywania czasów dzier¿awy w postaci absolutnej lub relatywnej
+dla systemów bez zegara. Plik dzier¿aw mo¿e byæ tak¿e zapisywany
+regularnie lub przy u¿yciu sygna³u dla systemów z pamiêci± flash.
+
+Klient pobiera wszystkie opcje z linii poleceñ i wywo³uje zewnêtrzne
+skrypty do obs³ugi konfiguracji interfejsów, co daje ostateczn±
+elastyczno¶æ.
+
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
 
 %build
-%{__make} %{?with_combined_binary:COMBINED_BINARY=1} \
+%{__make} \
+	%{?with_combined_binary:COMBINED_BINARY=1} \
 	OPTFLAGS='%{rpmcflags}'
 
 %install
@@ -63,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
-/sbin/udhcpc
+%attr(755,root,root) /sbin/udhcpc
 %attr(755,root,root) %{_bindir}/dumpleases
 %attr(755,root,root) %{_sbindir}/udhcpd
 %{_mandir}/man1/dumpleases.1*
