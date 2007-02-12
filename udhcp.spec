@@ -6,7 +6,7 @@
 %bcond_with	combined_binary	# combined_binary
 #
 Summary:	udhcp Server/Client Package
-Summary(pl):	Serwer i klient udhcp
+Summary(pl.UTF-8):   Serwer i klient udhcp
 Name:		udhcp
 Version:	0.9.8
 Release:	0.1
@@ -43,26 +43,26 @@ The client accepts all options on the command line, and calls external
 scripts to handle the configuration of interfaces to allow for the
 ultimate flexibility.
 
-%description -l pl
-Serwer/klient udhcp jest przeznaczony dla ¶rodowisk wbudowanych. Inne
-linuksowe serwery DHCP (takie jak serwer DHCP ISC) s± przeznaczone dla
-wiêkszych systemów, takich jak PC (z wiêksz± ilo¶ci± RAM-u,
+%description -l pl.UTF-8
+Serwer/klient udhcp jest przeznaczony dla Å›rodowisk wbudowanych. Inne
+linuksowe serwery DHCP (takie jak serwer DHCP ISC) sÄ… przeznaczone dla
+wiÄ™kszych systemÃ³w, takich jak PC (z wiÄ™kszÄ… iloÅ›ciÄ… RAM-u,
 przestrzeni dyskowe itp.). W efekcie pakiet udhcp nie ma tak wielu
-mo¿liwo¶ci jak niektóre inne pakiety DHCP.
+moÅ¼liwoÅ›ci jak niektÃ³re inne pakiety DHCP.
 
-Skompilowane z uClibc binarki serwera i klienta maj± oko³o 18kB, a
-skompilowane jako jedna po³±czona binarka - 28kB. udhcp ¶wietnie
-pasuje dla systemów wbudowanych wymagaj±cych obs³ugi DHCP.
+Skompilowane z uClibc binarki serwera i klienta majÄ… okoÅ‚o 18kB, a
+skompilowane jako jedna poÅ‚Ä…czona binarka - 28kB. udhcp Å›wietnie
+pasuje dla systemÃ³w wbudowanych wymagajÄ…cych obsÅ‚ugi DHCP.
 
-Plik dzier¿aw serwera udhcp jest w formacie binarnym, przez co
-wymagana przestrzeñ na adresy IP i MAC jest minimalna. Ma tak¿e opcjê
-przechowywania czasów dzier¿awy w postaci absolutnej lub relatywnej
-dla systemów bez zegara. Plik dzier¿aw mo¿e byæ tak¿e zapisywany
-regularnie lub przy u¿yciu sygna³u dla systemów z pamiêci± flash.
+Plik dzierÅ¼aw serwera udhcp jest w formacie binarnym, przez co
+wymagana przestrzeÅ„ na adresy IP i MAC jest minimalna. Ma takÅ¼e opcjÄ™
+przechowywania czasÃ³w dzierÅ¼awy w postaci absolutnej lub relatywnej
+dla systemÃ³w bez zegara. Plik dzierÅ¼aw moÅ¼e byÄ‡ takÅ¼e zapisywany
+regularnie lub przy uÅ¼yciu sygnaÅ‚u dla systemÃ³w z pamiÄ™ciÄ… flash.
 
-Klient pobiera wszystkie opcje z linii poleceñ i wywo³uje zewnêtrzne
-skrypty do obs³ugi konfiguracji interfejsów, co daje ostateczn±
-elastyczno¶æ.
+Klient pobiera wszystkie opcje z linii poleceÅ„ i wywoÅ‚uje zewnÄ™trzne
+skrypty do obsÅ‚ugi konfiguracji interfejsÃ³w, co daje ostatecznÄ…
+elastycznoÅ›Ä‡.
 
 %prep
 %setup -q
