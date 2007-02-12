@@ -6,7 +6,7 @@
 %bcond_with	combined_binary	# combined_binary
 #
 Summary:	udhcp Server/Client Package
-Summary(pl.UTF-8):   Serwer i klient udhcp
+Summary(pl.UTF-8):	Serwer i klient udhcp
 Name:		udhcp
 Version:	0.9.8
 Release:	0.1
